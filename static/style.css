@@ -1,0 +1,275 @@
+/* استيراد خطوط جوجل لتصميم أكثر احترافية وجمالاً */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    /* تعريف متغيرات الألوان لسهولة التغيير */
+    --primary-color: #4A90E2; /* أزرق جذاب */
+    --primary-dark: #357ABD; /* أزرق أغمق للHover */
+    --background-light: #f8f9fa; /* خلفية فاتحة جداً */
+    --text-color: #343a40; /* لون نص داكن */
+    --border-color: #ced4da; /* لون حدود فاتح */
+    --box-shadow-light: rgba(0, 0, 0, 0.08); /* ظل خفيف جداً */
+    --success-bg: #d4edda;
+    --success-border: #c3e6cb;
+    --success-text: #155724;
+    --error-bg: #f8d7da;
+    --error-border: #f5c6cb;
+    --error-text: #721c24;
+}
+
+body {
+    font-family: 'Cairo', sans-serif; /* استخدام خط عربي جذاب */
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.7; /* مسافات أسطر أفضل للقراءة */
+    margin: 0;
+    padding: 0;
+    display: flex; /* لتوسيط المحتوى */
+    justify-content: center; /* توسيط أفقي */
+    align-items: center; /* توسيط عمودي */
+    min-height: 100vh; /* جعل الجسم يملأ الشاشة بالكامل */
+    direction: rtl; /* للغة العربية */
+    text-align: right; /* للغة العربية */
+}
+
+.container {
+    width: 100%;
+    max-width: 700px; /* جعل الحاوية أوسع قليلاً */
+    background: #ffffff;
+    padding: 40px; /* زيادة المساحة الداخلية */
+    border-radius: 12px; /* حواف أكثر استدارة */
+    box-shadow: 0 8px 25px var(--box-shadow-light); /* ظل أقوى وأكثر جاذبية */
+    box-sizing: border-box; /* لضمان عدم تجاوز العرض المحدد */
+}
+
+h1 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 2.5em; /* تكبير حجم العنوان الرئيسي */
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700; /* جعل الخط أثقل */
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: center; /* توسيط النص التوضيحي */
+}
+
+.form-group {
+    margin-bottom: 25px; /* زيادة المسافة بين مجموعات النموذج */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600; /* جعل تسميات الحقول أكثر وضوحاً */
+    color: var(--text-color);
+    font-size: 1.05em;
+}
+
+input[type="text"],
+textarea,
+select { /* أضفنا select هنا */
+    width: 100%;
+    padding: 15px; /* زيادة المساحة الداخلية للحقول */
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* حواف أكثر استدارة */
+    font-size: 1.1em; /* حجم خط أكبر داخل الحقول */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* تأثير انتقال سلس */
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus { /* أضفنا select هنا */
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); /* ظل أزرق عند التركيز */
+    outline: none; /* إزالة الخط الأزرق الافتراضي */
+}
+
+textarea {
+    min-height: 120px; /* ارتفاع أدنى لمربع النص */
+    resize: vertical;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px; /* مساحة داخلية أكبر للزر */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em; /* حجم خط أكبر للزر */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px); /* تأثير رفع بسيط عند المرور */
+}
+
+#loading, #response, #error {
+    margin-top: 35px; /* زيادة المسافة العلوية */
+    padding: 25px; /* زيادة المساحة الداخلية */
+    border-radius: 8px;
+    font-size: 1.05em;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* ظل خفيف للعناصر الناتجة */
+}
+
+#loading {
+    background-color: #e0f2f7; /* لون أزرق فاتح للتحميل */
+    border-color: #b3e5fc;
+    color: #01579b;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#response {
+    background-color: var(--success-bg);
+    border-color: var(--success-border);
+    color: var(--success-text);
+}
+
+#error {
+    background-color: var(--error-bg);
+    border-color: var(--error-border);
+    color: var(--error-text);
+}
+
+#response h2, #error h2 {
+    color: inherit; /* لضمان أن لون العنوان يتناسب مع الخلفية */
+    margin-top: 0;
+    text-align: right; /* للغة العربية */
+}
+
+#descriptionText {
+    white-space: pre-wrap; /* للحفاظ على تنسيق المسافات والأسطر الجديدة من API */
+}
+
+.hidden {
+    display: none !important; /* استخدام !important لضمان الإخفاء */
+}
+
+/* Spinner for loading state */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--primary-color);
+    border-radius: 50%;
+    width: 40px; /* حجم أكبر للسبينر */
+    height: 40px;
+    animation: spin 0.8s linear infinite; /* سرعة دوران أفضل */
+    margin: 15px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* زر الحفظ */
+.save-btn {
+    background-color: #28a745; /* لون أخضر */
+    margin-top: 15px;
+}
+
+.save-btn:hover {
+    background-color: #218838;
+}
+
+/* قسم تاريخ الأوصاف */
+.history-container {
+    margin-top: 40px;
+    background: #eef7ff; /* خلفية زرقاء فاتحة */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 1px solid #cce5ff;
+}
+
+.history-container h2 {
+    color: #0056b3; /* لون أزرق داكن */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#descriptionsHistory {
+    list-style: none; /* إزالة النقاط الافتراضية */
+    padding: 0;
+    max-height: 400px; /* تحديد أقصى ارتفاع */
+    overflow-y: auto; /* إضافة شريط تمرير إذا زاد المحتوى */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+#descriptionsHistory li {
+    background-color: #f0f7ff; /* خلفية فاتحة للعناصر */
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #d9edf7;
+    font-size: 0.95em;
+    line-height: 1.5;
+    position: relative; /* للسماح بوضع زر الحذف */
+}
+
+#descriptionsHistory li:last-child {
+    margin-bottom: 0;
+}
+
+/* زر مسح التاريخ */
+.clear-history-btn {
+    background-color: #dc3545; /* لون أحمر */
+    margin-top: 20px;
+}
+
+.clear-history-btn:hover {
+    background-color: #c82333;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 25px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    button {
+        font-size: 1.1em;
+        padding: 12px 20px;
+    }
+}
+/* ... (بقية ملف CSS الخاص بك) ... */
+
+/* نمط لحقول الإدخال والنص (تأكد من تطبيق هذا على input[type="text"] و textarea) */
+.input-group input[type="text"],
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* لضمان أن العرض يشمل padding والحدود */
+    font-size: 1em;
+}
+
+/* نمط لحقل الكلمات المفتاحية تحديدًا إذا أردت تمييزه */
+#seoKeywords {
+    border-color: #007bff; /* لون مميز مثلاً */
+}
+
+/* ... (بقية الأنماط) ... */

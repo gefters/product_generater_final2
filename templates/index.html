@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد وصف المنتج بالذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>مولد وصف المنتج بالذكاء الاصطناعي</h1>
+        
+        <div class="language-switcher">
+            <label for="uiLanguage">لغة الواجهة:</label>
+            <select id="uiLanguage">
+                <option value="ar">العربية</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+
+        <form id="productForm">
+            <div class="input-group">
+                <label for="productTitle" data-i18n="product_title_label">عنوان المنتج:</label>
+                <input type="text" id="productTitle" placeholder="مثال: ساعة ذكية رياضية" required>
+            </div>
+            <div class="input-group">
+                <label for="keyFeatures" data-i18n="key_features_label">الميزات الرئيسية (افصل بفاصلة):</label>
+                <textarea id="keyFeatures" placeholder="مثال: مقاومة للماء، تتبع معدل ضربات القلب، بطارية تدوم 7 أيام" required></textarea>
+            </div>
+            <div class="input-group">
+                <label for="seoKeywords" data-i18n="seo_keywords_label">الكلمات المفتاحية المستهدفة (افصل بفاصلة):</label>
+                <input type="text" id="seoKeywords" placeholder="مثال: ساعة ذكية، لياقة بدنية، تتبع صحي" required>
+            </div>
+
+            <div class="options-group">
+                <div class="input-group">
+                    <label for="tone" data-i18n="tone_label">النبرة:</label>
+                    <select id="tone">
+                        <option value="marketing" data-i18n="tone_marketing">تسويقية</option>
+                        <option value="friendly" data-i18n="tone_friendly">ودودة</option>
+                        <option value="formal" data-i18n="tone_formal">رسمية</option>
+                        <option value="humorous" data-i18n="tone_humorous">فكاهية</option>
+                        <option value="informative" data-i18n="tone_informative">معلوماتية</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="length" data-i18n="length_label">الطول:</label>
+                    <select id="length">
+                        <option value="short" data-i18n="length_short">قصير</option>
+                        <option value="medium" data-i18n="length_medium">متوسط</option>
+                        <option value="long" data-i18n="length_long">طويل</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="language" data-i18n="description_language_label">لغة الوصف (للنموذج):</label>
+                    <select id="language" name="language">
+                        <option value="arabic" data-i18n="lang_arabic">العربية</option>
+                        <option value="english" data-i18n="lang_english">English</option>
+                        <option value="spanish" data-i18n="lang_spanish">Español</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" data-i18n="generate_button">توليد الوصف</button>
+        </form>
+
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p data-i18n="loading_message">جاري توليد الوصف...</p>
+        </div>
+
+        <div id="error" class="hidden">
+            <p id="errorMessage" class="error-message"></p>
+        </div>
+
+        <div id="response" class="hidden">
+            <h2 data-i18n="generated_description_title">الوصف المولّد:</h2>
+            <textarea id="descriptionText" readonly></textarea>
+            <button id="saveDescriptionBtn" class="hidden" data-i18n="save_button">حفظ الوصف</button>
+        </div>
+
+        <div class="history-section">
+            <h2 data-i18n="history_title">تاريخ الأوصاف المحفوظة:</h2>
+            <ul id="descriptionsHistory">
+                <li><span data-i18n="no_history_message">لا توجد أوصاف محفوظة بعد.</span></li>
+            </ul>
+            <button id="clearHistoryBtn" class="hidden" data-i18n="clear_history_button">مسح التاريخ</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
