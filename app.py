@@ -7,10 +7,10 @@ import os
 # استيراد مكتبات نماذج الذكاء الاصطناعي
 
 # --- تفعيل OpenAI ---
-from openai import OpenAI
+#from openai import OpenAI
 
 # --- تجميد Google Gemini ---
-# import google.generativeai as genai
+ import google.generativeai as genai
 
 
 from flask import Flask, request, jsonify, render_template
@@ -20,14 +20,14 @@ app = Flask(__name__)
 # --- تهيئة نموذج الذكاء الاصطناعي ---
 # الخيار 1: استخدام OpenAI (مفعل الآن)
 # تأكد من أن لديك OPENAI_API_KEY في ملف .env
-client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
+#client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 # اسم النموذج الأفضل: 'gpt-4o-mini'
-AI_MODEL_NAME = 'gpt-4o-mini' # تم تعيين النموذج لـ gpt-4o-mini
+#AI_MODEL_NAME = 'gpt-4o-mini' # تم تعيين النموذج لـ gpt-4o-mini
 
 # الخيار 2: استخدام Google Gemini (مجمد حاليًا)
-# genai.configure(api_key=os.environ.get('GEMINI_API_KEY'))
-# AI_MODEL_NAME = 'gemini-1.5-pro-latest'
-# model = genai.GenerativeModel(AI_MODEL_NAME)
+ genai.configure(api_key=os.environ.get('GEMINI_API_KEY'))
+ AI_MODEL_NAME = 'gemini-1.5-pro-latest'
+ model = genai.GenerativeModel(AI_MODEL_NAME)
 
 
 DESCRIPTIONS_FILE = 'descriptions.json'
@@ -166,17 +166,17 @@ def generate_description():
 
     try:
         # --- استدعاء API لـ OpenAI (مفعل الآن) ---
-        response = client.chat.completions.create(
-            model=AI_MODEL_NAME,
-            messages=prompt_messages,
-            temperature=0.7, # قيمة بين 0 و 1 للتحكم في الإبداع (0 أقل إبداعًا، 1 أكثر إبداعًا)
-            max_tokens=600 # الحد الأقصى للتوكنز المخرجة لتجنب التكاليف العالية جدًا
-        )
-        description = response.choices[0].message.content
+       # response = client.chat.completions.create(
+          #  model=AI_MODEL_NAME,
+         #   messages=prompt_messages,
+           # temperature=0.7, # قيمة بين 0 و 1 للتحكم في الإبداع (0 أقل إبداعًا، 1 أكثر إبداعًا)
+           # max_tokens=600 # الحد الأقصى للتوكنز المخرجة لتجنب التكاليف العالية جدًا
+        #)
+       # description = response.choices[0].message.content
 
         # --- استدعاء API لـ Google Gemini (مجمد حاليًا) ---
-        # response = model.generate_content(prompt_messages)
-        # description = response.text
+         response = model.generate_content(prompt_messages)
+         description = response.text
 
 
         return jsonify({"description": description}), 200
