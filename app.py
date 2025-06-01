@@ -6,27 +6,27 @@ import json
 import os
 # استيراد مكتبات نماذج الذكاء الاصطناعي
 
-# --- تفعيل OpenAI ---
-#from openai import OpenAI
+# --- تفعيل OpenAI (معطل) ---
+# from openai import OpenAI
 
-# --- تجميد Google Gemini ---
-import google.generativeai as genai # هذا السطر يجب أن يبدأ من أقصى اليسار
+# --- تفعيل Google Gemini (مفعل) ---
+import google.generativeai as genai
  
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
 # --- تهيئة نموذج الذكاء الاصطناعي ---
-# الخيار 1: استخدام OpenAI (مفعل الآن)
+# الخيار 1: استخدام OpenAI (معطل)
 # تأكد من أن لديك OPENAI_API_KEY في ملف .env
-#client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
+# client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 # اسم النموذج الأفضل: 'gpt-4o-mini'
-#AI_MODEL_NAME = 'gpt-4o-mini' # تم تعيين النموذج لـ gpt-4o-mini
+# AI_MODEL_NAME = 'gpt-4o-mini' # تم تعيين النموذج لـ gpt-4o-mini
 
-# الخيار 2: استخدام Google Gemini (مجمد حاليًا)
-genai.configure(api_key=os.environ.get('GEMINI_API_KEY')) # هذا السطر يجب أن يبدأ من أقصى اليسار
-AI_MODEL_NAME = 'gemini-1.5-pro-latest' # هذا السطر يجب أن يبدأ من أقصى اليسار
-model = genai.GenerativeModel(AI_MODEL_NAME) # هذا السطر يجب أن يبدأ من أقصى اليسار
+# الخيار 2: استخدام Google Gemini (مفعل)
+genai.configure(api_key=os.environ.get('GEMINI_API_KEY'))
+AI_MODEL_NAME = 'gemini-1.5-pro-latest'
+model = genai.GenerativeModel(AI_MODEL_NAME)
 
 
 DESCRIPTIONS_FILE = 'descriptions.json'
@@ -109,18 +109,18 @@ def generate_description():
         prompt_length_instruction = "الطول: **طويل ومفصل (250-400 كلمة)**. اشرح كل ميزة بعمق، وقدم سيناريوهات استخدام، وقدم معلومات شاملة. هذا الطول مناسب لصفحات المنتجات التي تتطلب تفصيلاً شاملاً لتحسين محركات البحث."
 
 
-    # --- بناء الـ Prompt المحسّن بالكامل (متوافق مع OpenAI Chat Completions API) ---
+    # --- بناء الـ Prompt المحسّن بالكامل (متوافق الآن مع Google Gemini API) ---
     prompt_messages = [
         {
-            "role": "system",
-            "content": """
+            "role": "user", # يمكنك استخدام "user" أو "model". "user" هنا هو الأنسب لتعليمات النظام
+            "parts": ["""
             أنت خبير تسويق إبداعي وتحسين محركات البحث (SEO)، ولديك معرفة عميقة بما يجعل وصف المنتج مقنعًا ويحقق المبيعات ويحتل مراتب متقدمة في نتائج البحث.
             مهمتك هي كتابة وصف تسويقي مفصل وجذاب ومحسن لمحركات البحث (SEO) لمنتج معين.
-            """
+            """]
         },
         {
-            "role": "user",
-            "content": f"""
+            "role": "user", # هذا هو الدور الرئيسي للمستخدم
+            "parts": [f"""
             **معلومات المنتج:**
             اسم المنتج: {product_title}
             الميزات الرئيسية (نقطية):
@@ -159,12 +159,12 @@ def generate_description():
             استخدم العناوين الفرعية لتنظيم الوصف وجعله قابلاً للمسح بصرياً (مثل: **وداعاً للمشاكل!، تجربة لا تُنسى:**).
 
             الآن، قم بتوليد الوصف للمنتج أعلاه بناءً على هذه التعليمات الشاملة:
-            """
+            """]
         }
     ]
 
     try:
-        # --- استدعاء API لـ OpenAI (مفعل الآن) ---
+        # --- استدعاء API لـ OpenAI (معطل) ---
         # response = client.chat.completions.create(
         #    model=AI_MODEL_NAME,
         #    messages=prompt_messages,
@@ -173,7 +173,7 @@ def generate_description():
         #)
         # description = response.choices[0].message.content
 
-        # --- استدعاء API لـ Google Gemini (مجمد حاليًا) ---
+        # --- استدعاء API لـ Google Gemini (مفعل) ---
         response = model.generate_content(prompt_messages)
         description = response.text
 
