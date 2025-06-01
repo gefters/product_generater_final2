@@ -9,10 +9,9 @@ import os
 # --- تفعيل OpenAI ---
 #from openai import OpenAI
 
-# --- تجميد Google Gemini ---
+ #--- تجميد Google Gemini ---
  import google.generativeai as genai
-
-
+ 
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
