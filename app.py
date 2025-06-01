@@ -25,7 +25,7 @@ app = Flask(__name__)
 
 # الخيار 2: استخدام Google Gemini (مفعل)
 genai.configure(api_key=os.environ.get('GEMINI_API_KEY'))
-AI_MODEL_NAME = 'gemini-1.5-pro-latest'
+AI_MODEL_NAME = 'gemini-1.5-flash'
 model = genai.GenerativeModel(AI_MODEL_NAME)
 
 
