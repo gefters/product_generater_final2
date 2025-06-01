@@ -9,8 +9,8 @@ import os
 # --- تفعيل OpenAI ---
 #from openai import OpenAI
 
- #--- تجميد Google Gemini ---
- import google.generativeai as genai
+# --- تجميد Google Gemini ---
+import google.generativeai as genai # هذا السطر يجب أن يبدأ من أقصى اليسار
  
 from flask import Flask, request, jsonify, render_template
 
@@ -24,9 +24,9 @@ app = Flask(__name__)
 #AI_MODEL_NAME = 'gpt-4o-mini' # تم تعيين النموذج لـ gpt-4o-mini
 
 # الخيار 2: استخدام Google Gemini (مجمد حاليًا)
- genai.configure(api_key=os.environ.get('GEMINI_API_KEY'))
- AI_MODEL_NAME = 'gemini-1.5-pro-latest'
- model = genai.GenerativeModel(AI_MODEL_NAME)
+genai.configure(api_key=os.environ.get('GEMINI_API_KEY')) # هذا السطر يجب أن يبدأ من أقصى اليسار
+AI_MODEL_NAME = 'gemini-1.5-pro-latest' # هذا السطر يجب أن يبدأ من أقصى اليسار
+model = genai.GenerativeModel(AI_MODEL_NAME) # هذا السطر يجب أن يبدأ من أقصى اليسار
 
 
 DESCRIPTIONS_FILE = 'descriptions.json'
@@ -165,17 +165,17 @@ def generate_description():
 
     try:
         # --- استدعاء API لـ OpenAI (مفعل الآن) ---
-       # response = client.chat.completions.create(
-          #  model=AI_MODEL_NAME,
-         #   messages=prompt_messages,
-           # temperature=0.7, # قيمة بين 0 و 1 للتحكم في الإبداع (0 أقل إبداعًا، 1 أكثر إبداعًا)
-           # max_tokens=600 # الحد الأقصى للتوكنز المخرجة لتجنب التكاليف العالية جدًا
+        # response = client.chat.completions.create(
+        #    model=AI_MODEL_NAME,
+        #    messages=prompt_messages,
+        #    temperature=0.7, # قيمة بين 0 و 1 للتحكم في الإبداع (0 أقل إبداعًا، 1 أكثر إبداعًا)
+        #    max_tokens=600 # الحد الأقصى للتوكنز المخرجة لتجنب التكاليف العالية جدًا
         #)
-       # description = response.choices[0].message.content
+        # description = response.choices[0].message.content
 
         # --- استدعاء API لـ Google Gemini (مجمد حاليًا) ---
-         response = model.generate_content(prompt_messages)
-         description = response.text
+        response = model.generate_content(prompt_messages)
+        description = response.text
 
 
         return jsonify({"description": description}), 200
