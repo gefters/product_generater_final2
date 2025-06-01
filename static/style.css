@@ -1,174 +1,515 @@
-/* استيراد خطوط جوجل لتصميم أكثر احترافية وجمالاً */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
+/* static/css/style.css */
 
-:root {
-    /* تعريف متغيرات الألوان لسهولة التغيير */
-    --primary-color: #4A90E2; /* أزرق جذاب */
-    --primary-dark: #357ABD; /* أزرق أغمق للHover */
-    --background-light: #f8f9fa; /* خلفية فاتحة جداً */
-    --text-color: #343a40; /* لون نص داكن */
-    --border-color: #ced4da; /* لون حدود فاتح */
-    --box-shadow-light: rgba(0, 0, 0, 0.08); /* ظل خفيف جداً */
-    --success-bg: #d4edda;
-    --success-border: #c3e6cb;
-    --success-text: #155724;
-    --error-bg: #f8d7da;
-    --error-border: #f5c6cb;
-    --error-text: #721c24;
-}
+/* ====== استيراد خطوط جوجل لتصميم أكثر احترافية وجمالاً ====== */
+/* تم استيراد Cairo فقط لأنه الخط العربي الرئيسي المستخدم */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+/* تم إضافة خطي Inter و Noto Sans لأن التصميم الأصلي استخدمهما */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900&display=swap');
 
-body {
-    font-family: 'Cairo', sans-serif; /* استخدام خط عربي جذاب */
-    background-color: var(--background-light);
-    color: var(--text-color);
-    line-height: 1.7; /* مسافات أسطر أفضل للقراءة */
+
+/* ====== إعادة ضبط أساسية ====== */
+* {
     margin: 0;
     padding: 0;
-    display: flex; /* لتوسيط المحتوى */
-    justify-content: center; /* توسيط أفقي */
-    align-items: center; /* توسيط عمودي */
-    min-height: 100vh; /* جعل الجسم يملأ الشاشة بالكامل */
-    direction: rtl; /* للغة العربية */
-    text-align: right; /* للغة العربية */
+    box-sizing: border-box;
+}
+
+/* ====== متغيرات الألوان للوضع الفاتح (الافتراضي) ====== */
+:root {
+    --bg-color: #F4F6F8; /* خلفية الصفحة - أزرق فاتح مائل للرمادي */
+    --text-color: #333333; /* لون النص الأساسي - رمادي داكن */
+    --header-bg-color: #ffffff; /* خلفية الرأس والحاويات الرئيسية */
+    --logo-color: #00BCD4; /* لون الشعار - أزرق سماوي */
+    --heading-color: #607D8B; /* لون العناوين - رمادي مزرق داكن */
+    --input-bg-color: #F9F9F9; /* خلفية حقول الإدخال */
+    --input-border-color: #cccccc; /* حدود حقول الإدخال */
+    --input-focus-border-color: #00BCD4; /* حدود حقول الإدخال عند التركيز */
+    --button-primary-bg: #00BCD4; /* لون الزر الأساسي - أزرق سماوي */
+    --button-primary-hover-bg: #0097A7;
+    --button-secondary-bg: #90A4AE; /* لون الزر الثانوي - رمادي مزرق فاتح */
+    --button-secondary-hover-bg: #78909C;
+    --button-danger-bg: #dc3545; /* لون زر الخطر (مسح) */
+    --button-danger-hover-bg: #c82333;
+    --description-box-bg: #FDFBF8; /* خلفية صندوق الوصف - بيج فاتح */
+    --description-box-border: #D0D0D0; /* حدود صندوق الوصف */
+    --loading-error-bg: #ffe0b2; /* خلفية رسائل التحميل/الخطأ فاتحة */
+    --error-message-color: #d32f2f; /* لون رسالة الخطأ */
+    --spinner-color: #00BCD4; /* لون السبينر */
+    --box-shadow-light: rgba(0, 0, 0, 0.05); /* ظل خفيف */
+    --box-shadow-medium: rgba(0, 0, 0, 0.08); /* ظل متوسط */
+    --box-shadow-strong: rgba(0, 0, 0, 0.1); /* ظل قوي */
+    --link-color: #007bff; /* لون الروابط الافتراضي */
+    --link-hover-color: #0056b3; /* لون الروابط عند التحويم */
+    --footer-text-color: #555; /* لون نص الفوتر الافتراضي */
+}
+
+/* ====== متغيرات الألوان للوضع الداكن ====== */
+body.dark-mode {
+    --bg-color: #2b2b2b;
+    --text-color: #e0e0e0;
+    --header-bg-color: #3a3a3a;
+    --logo-color: #00BCD4; /* يمكن الحفاظ على نفس لون الشعار أو تغييره */
+    --heading-color: #B0BEC5; /* رمادي مزرق أفتح */
+    --input-bg-color: #404040;
+    --input-border-color: #555555;
+    --input-focus-border-color: #00BCD4;
+    --button-primary-bg: #007987; /* أزرق سماوي أغمق قليلاً للوضع الداكن */
+    --button-primary-hover-bg: #005f6b;
+    --button-secondary-bg: #78909C;
+    --button-secondary-hover-bg: #607D8B;
+    --button-danger-bg: #a32e3b;
+    --button-danger-hover-bg: #8c2631;
+    --description-box-bg: #3a3a3a;
+    --description-box-border: #666666;
+    --loading-error-bg: #4a4a4a;
+    --error-message-color: #ff8a80; /* لون رسالة الخطأ في الوضع الداكن */
+    --spinner-color: #00BCD4;
+    --box-shadow-light: rgba(0, 0, 0, 0.2);
+    --box-shadow-medium: rgba(0, 0, 0, 0.3);
+    --box-shadow-strong: rgba(0, 0, 0, 0.4);
+    --link-color: #87CEEB; /* لون فاتح للروابط في الوضع الداكن */
+    --link-hover-color: #ADD8E6;
+    --footer-text-color: #bbb; /* لون نص الفوتر في الوضع الداكن لتباين أفضل */
+}
+
+/* ====== تطبيق المتغيرات على عناصر الصفحة ====== */
+body {
+    font-family: 'Inter', 'Noto Sans', 'Cairo', sans-serif; /* استخدام الخطوط الجديدة */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    direction: rtl; /* اتجاه النص من اليمين لليسار */
+    text-align: right; /* محاذاة النص لليمين */
+    transition: background-color 0.3s ease, color 0.3s ease; /* انتقال سلس */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* لمنع شريط التمرير الأفقي */
 }
 
 .container {
-    width: 100%;
-    max-width: 700px; /* جعل الحاوية أوسع قليلاً */
-    background: #ffffff;
-    padding: 40px; /* زيادة المساحة الداخلية */
-    border-radius: 12px; /* حواف أكثر استدارة */
-    box-shadow: 0 8px 25px var(--box-shadow-light); /* ظل أقوى وأكثر جاذبية */
+    max-width: 960px; /* زيادة العرض الأقصى للحاوية */
+    margin: 0 auto;
+    padding: 20px;
     box-sizing: border-box; /* لضمان عدم تجاوز العرض المحدد */
 }
 
-h1 {
-    font-family: 'Cairo', sans-serif;
-    font-size: 2.5em; /* تكبير حجم العنوان الرئيسي */
-    color: var(--primary-color);
+/* ====== الرأس (site-header) ====== */
+.site-header {
+    background-color: var(--header-bg-color);
+    padding: 0.8rem 2.5rem; /* padding-x: 10 (40px) from Tailwind */
     text-align: center;
-    margin-bottom: 25px;
-    font-weight: 700; /* جعل الخط أثقل */
+    border-bottom: 1px solid #ededed; /* border-b-[#ededed] */
+    box-shadow: 0 2px 4px var(--box-shadow-light);
+    color: var(--text-color);
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex; /* flex items-center justify-between */
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0; /* Override default container padding for header */
+    max-width: 100%; /* Ensure container fills header */
+}
+
+/* Logo and Title */
+.header-logo-container { /* Changed from .site-header .flex.items-center.gap-4 */
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* gap-4 (16px) */
+    color: #141414; /* text-[#141414] */
+}
+
+.header-logo-container svg { /* Logo SVG */
+    width: 1.5rem; /* size-6 (24px) - adjusted for better visibility */
+    height: 1.5rem; /* size-6 (24px) */
+    fill: #141414; /* fill="currentColor" implies text-[#141414] */
+}
+
+#siteTitle {
+    margin: 0;
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 700; /* font-bold */
+    line-height: 1.25; /* leading-tight */
+    letter-spacing: -0.015em; /* tracking-[-0.015em] */
+    color: #141414; /* text-[#141414] */
+}
+
+
+.header-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center; /* To align select and button */
+}
+
+.theme-toggle-btn {
+    background-color: #e5e7eb; /* bg-gray-200 */
+    color: #374151; /* text-gray-800 */
+    padding: 0.6rem 1rem; /* h-10 px-4 */
+    border-radius: 0.5rem; /* rounded-lg */
+    cursor: pointer;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 700; /* font-bold */
+    line-height: 1.5; /* leading-normal */
+    letter-spacing: 0.015em; /* tracking-[0.015em] */
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+    min-width: 84px; /* min-w-[84px] */
+    max-width: 480px; /* max-w-[480px] */
+    overflow: hidden; /* overflow-hidden */
+    justify-content: center; /* justify-center */
+}
+
+.theme-toggle-btn:hover {
+    background-color: #d1d5db; /* A slightly darker gray for hover */
+    transform: translateY(-1px);
+}
+
+.language-select {
+    width: auto;
+    padding: 0.6rem 0.75rem; /* h-10 px-3 */
+    font-size: 0.875rem; /* text-sm */
+    background-color: #f9fafb; /* bg-neutral-50 */
+    color: #141414; /* text-[#141414] */
+    border: 1px solid #dbdbdb; /* border-[#dbdbdb] */
+    border-radius: 0.5rem; /* rounded-lg */
+    font-weight: 400; /* font-normal */
+    line-height: 1.5; /* leading-normal */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    /* Custom arrow for select */
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none;
+    background-image: var(--select-button-svg, url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(115,115,115)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e'));
+    background-repeat: no-repeat;
+    background-position: left 0.75rem center; /* Adjusted for RTL */
+    background-size: 1rem; /* Smaller arrow size */
+    padding-left: 2.25rem; /* Space for the custom arrow */
+    padding-right: 0.75rem; /* Normal padding for text */
+}
+
+/* Important: Add top padding to main content to prevent it from being hidden under the fixed header */
+.main-content {
+    padding-top: 5.625rem; /* Roughly 90px (height of header + some gap) */
+    padding-bottom: 40px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /* flex justify-center */
+    padding-left: 2.5rem; /* px-40 (160px), adjusting for container max-width */
+    padding-right: 2.5rem; /* px-40 (160px) */
+}
+
+.main-content > .container { /* Inner container for main content */
+    display: flex;
+    flex-direction: column;
+    max-width: 960px;
+    flex: 1; /* flex-1 */
+}
+
+.description-form-section,
+.description-results-section,
+.history-section {
+    background-color: var(--header-bg-color); /* خلفية الأقسام الرئيسية */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--box-shadow-medium);
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 1.75rem; /* text-[28px] */
+    color: #141414; /* text-[#141414] */
+    margin-bottom: 1.25rem; /* pb-3 pt-5 (adjusted for single margin) */
+    font-weight: 700; /* font-bold */
+    line-height: 1.25; /* leading-tight */
+    letter-spacing: -0.025em; /* tracking-light */
+    text-align: center; /* text-center */
+    padding-bottom: 1rem; /* pb-3 */
+    padding-top: 1.25rem; /* pt-5 */
+}
+.description-form-section h2 { /* Specific adjustment for first h2 */
+    text-align: center;
+    border-bottom: none; /* Remove border from first h2 */
 }
 
 p {
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    color: #555;
-    text-align: center; /* توسيط النص التوضيحي */
+    margin-bottom: 15px;
+    color: var(--text-color);
+    font-size: 1rem; /* text-base */
+    font-weight: 400; /* font-normal */
+    line-height: 1.5; /* leading-normal */
+    text-align: center; /* text-center */
+    padding-bottom: 1rem; /* pb-4 */
 }
 
+/* ====== عناصر النموذج ====== */
 .form-group {
     margin-bottom: 25px; /* زيادة المسافة بين مجموعات النموذج */
+    display: flex; /* flex */
+    flex-direction: column; /* flex-col */
+    flex: 1; /* flex-1 */
+    min-width: 10rem; /* min-w-40 */
 }
 
-label {
+.form-group label {
     display: block;
-    margin-bottom: 10px;
-    font-weight: 600; /* جعل تسميات الحقول أكثر وضوحاً */
-    color: var(--text-color);
-    font-size: 1.05em;
+    margin-bottom: 0.5rem; /* pb-2 */
+    font-weight: 500; /* font-medium */
+    color: #141414; /* text-[#141414] */
+    font-size: 1rem; /* text-base */
+    line-height: 1.5; /* leading-normal */
 }
 
 input[type="text"],
 textarea,
-select { /* أضفنا select هنا */
-    width: 100%;
-    padding: 15px; /* زيادة المساحة الداخلية للحقول */
-    border: 1px solid var(--border-color);
-    border-radius: 8px; /* حواف أكثر استدارة */
-    font-size: 1.1em; /* حجم خط أكبر داخل الحقول */
-    box-sizing: border-box;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* تأثير انتقال سلس */
+select {
+    width: 100%; /* يجب أن يملأ العرض بالكامل */
+    padding: 0.9375rem 0.9375rem; /* p-[15px] */
+    border: 1px solid #dbdbdb; /* border border-[#dbdbdb] */
+    border-radius: 0.5rem; /* rounded-lg */
+    font-size: 1rem; /* text-base */
+    font-family: 'Inter', 'Noto Sans', 'Cairo', sans-serif;
+    background-color: #f9fafb; /* bg-neutral-50 */
+    color: #141414; /* text-[#141414] */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    resize: none; /* resize-none */
+    overflow: hidden; /* overflow-hidden */
+    min-width: 0; /* min-w-0 */
+    flex: 1; /* flex-1 */
+    outline: 0; /* focus:outline-0 */
+    box-shadow: none; /* focus:ring-0 */
+}
+input[type="text"] {
+    height: 3.5rem; /* h-14 */
+}
+
+textarea {
+    min-height: 9rem; /* min-h-36 */
+    resize: vertical;
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder,
+select::placeholder {
+    color: #737373; /* placeholder:text-neutral-500 */
 }
 
 input[type="text"]:focus,
 textarea:focus,
-select:focus { /* أضفنا select هنا */
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); /* ظل أزرق عند التركيز */
-    outline: none; /* إزالة الخط الأزرق الافتراضي */
+select:focus {
+    border-color: #dbdbdb; /* focus:border-[#dbdbdb] - Tailwind's focus often keeps the same border but adds ring */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2); /* A light blue ring simulation */
 }
 
-textarea {
-    min-height: 120px; /* ارتفاع أدنى لمربع النص */
-    resize: vertical;
+/* Specific styling for select arrow to override default browser styles */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: var(--select-button-svg, url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(115,115,115)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e'));
+    background-repeat: no-repeat;
+    background-position: left 0.75rem center; /* Adjusted for RTL */
+    background-size: 1rem;
+    padding-left: 2.25rem; /* Space for the custom arrow */
+    padding-right: 0.9375rem; /* Normal padding for text */
 }
 
-button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 15px 30px; /* مساحة داخلية أكبر للزر */
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2em; /* حجم خط أكبر للزر */
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
+/* Wrapper for the options group and the heading for it */
+.description-form-section h3 { /* Description Parameters title */
+    color: #141414; /* text-[#141414] */
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 700; /* font-bold */
+    line-height: 1.25; /* leading-tight */
+    letter-spacing: -0.015em; /* tracking-[-0.015em] */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+    padding-bottom: 0.5rem; /* pb-2 */
+    padding-top: 1rem; /* pt-4 */
+    text-align: right; /* Ensure it's right-aligned */
 }
 
-button:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-2px); /* تأثير رفع بسيط عند المرور */
-}
-
-#loading, #response, #error {
-    margin-top: 35px; /* زيادة المسافة العلوية */
-    padding: 25px; /* زيادة المساحة الداخلية */
-    border-radius: 8px;
-    font-size: 1.05em;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* ظل خفيف للعناصر الناتجة */
-}
-
-#loading {
-    background-color: #e0f2f7; /* لون أزرق فاتح للتحميل */
-    border-color: #b3e5fc;
-    color: #01579b;
-    text-align: center;
+.options-group {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap; /* flex-wrap */
+    gap: 1rem; /* gap-4 (16px) */
+    margin-bottom: 20px;
+    max-width: 480px; /* max-w-[480px] */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+    padding-top: 0.75rem; /* py-3 */
+    padding-bottom: 0.75rem; /* py-3 */
 }
 
-#response {
-    background-color: var(--success-bg);
-    border-color: var(--success-border);
-    color: var(--success-text);
+.options-group .form-group {
+    flex: 1; /* flex-1 */
+    min-width: 10rem; /* min-w-40 */
+    margin-bottom: 0;
+}
+/* Form field wrappers to match Tailwind's layout */
+#productForm > .form-group { /* For productTitle, keyFeatures, seoKeywords */
+    display: flex;
+    max-width: 480px;
+    flex-wrap: wrap;
+    align-items: flex-end; /* Align items to the bottom of the wrapper */
+    gap: 1rem; /* gap-4 */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+    padding-top: 0.75rem; /* py-3 */
+    padding-bottom: 0.75rem; /* py-3 */
+}
+/* Wrapper for the submit button */
+.form-submit-btn-wrapper {
+    display: flex;
+    justify-content: center; /* Centered */
+    max-width: 480px; /* Same max width as other form fields */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+    padding-top: 0.75rem; /* py-3 */
+    padding-bottom: 0.75rem; /* py-3 */
+    margin-top: 1rem; /* mt-4 */
 }
 
-#error {
-    background-color: var(--error-bg);
-    border-color: var(--error-border);
-    color: var(--error-text);
+
+/* ====== الأزرار العامة ====== */
+.btn {
+    padding: 0.75rem 1.25rem; /* px-5 for width, h-12 for height -> adjusted padding */
+    border: none;
+    border-radius: 0.5rem; /* rounded-lg */
+    cursor: pointer;
+    font-size: 1rem; /* text-base */
+    font-weight: 700; /* font-bold */
+    line-height: 1.5; /* leading-normal */
+    letter-spacing: 0.015em; /* tracking-[0.015em] */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+    min-width: 84px; /* min-w-[84px] */
+    max-width: 480px; /* max-w-[480px] */
+    overflow: hidden; /* overflow-hidden */
+    display: flex; /* flex */
+    align-items: center; /* items-center */
+    justify-content: center; /* justify-center */
 }
 
-#response h2, #error h2 {
-    color: inherit; /* لضمان أن لون العنوان يتناسب مع الخلفية */
-    margin-top: 0;
-    text-align: right; /* للغة العربية */
+.btn-primary {
+    background-color: #000000; /* bg-black */
+    color: #fafafa; /* text-neutral-50 */
+    margin-top: 0; /* Remove top margin, handled by wrapper */
+    width: 100%; /* full width for generate button */
+}
+.btn-primary > span { /* For truncate on button text */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-#descriptionText {
-    white-space: pre-wrap; /* للحفاظ على تنسيق المسافات والأسطر الجديدة من API */
+.btn-primary:hover {
+    background-color: #333333; /* Slightly darker black on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background-color: #e5e7eb; /* bg-gray-200 */
+    color: #374151; /* text-gray-800 */
+    font-size: 0.875rem; /* text-sm */
+    height: 2.5rem; /* h-10 */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+}
+
+.btn-secondary:hover {
+    background-color: #d1d5db; /* A slightly darker gray for hover */
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(144, 164, 174, 0.2);
+}
+
+.btn-danger {
+    background-color: var(--button-danger-bg);
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background-color: var(--button-danger-hover-bg);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+}
+
+
+/* ====== رسائل التحميل والخطأ ====== */
+.loading-section,
+.error-section {
+    background-color: var(--loading-error-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 25px;
+    text-align: center;
+    color: var(--text-color);
+    box-shadow: 0 2px 8px var(--box-shadow-light);
+    display: flex; /* flex */
+    flex-direction: column; /* flex-col */
+    align-items: center; /* items-center */
+    justify-content: center; /* justify-center */
+    padding-top: 1.25rem; /* py-5 */
+    padding-bottom: 1.25rem; /* py-5 */
+}
+.loading-section p, .error-section p {
+    margin-bottom: 0; /* Remove default paragraph margin */
+    padding-top: 1rem; /* pt-4 */
+    font-size: 1rem; /* text-base */
+    font-weight: 400; /* font-normal */
+    line-height: 1.5; /* leading-normal */
+    color: #141414; /* text-[#141414] */
+}
+
+.error-section {
+    background-color: #fee2e2; /* bg-red-100 */
+    border: 1px solid #ef4444; /* border-red-400 */
+    color: #b91c1c; /* text-red-700 */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+    padding-top: 0.75rem; /* py-3 */
+    padding-bottom: 0.75rem; /* py-3 */
+    border-radius: 0.25rem; /* rounded */
+    position: relative; /* relative */
+    margin-top: 1rem; /* mt-4 */
+    display: block; /* Overwrite flex display for error to show text */
+}
+
+.error-section .error-message {
+    color: #b91c1c; /* text-red-700 */
+    margin-bottom: 0; /* Override paragraph margin */
+    padding-top: 0; /* Override loading section padding */
 }
 
 .hidden {
-    display: none !important; /* استخدام !important لضمان الإخفاء */
+    display: none !important;
 }
 
-/* Spinner for loading state */
+/* Spinner للتحميل */
 .spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: var(--primary-color);
-    border-radius: 50%;
-    width: 40px; /* حجم أكبر للسبينر */
-    height: 40px;
-    animation: spin 0.8s linear infinite; /* سرعة دوران أفضل */
-    margin: 15px auto;
+    border: 4px solid rgba(0, 0, 0, 0.1); /* border-t-4 border-b-4 */
+    border-top-color: #000000; /* border-black */
+    border-right-color: #000000; /* Assuming solid border for simplicity */
+    border-bottom-color: #000000;
+    border-left-color: #000000; /* border-black */
+    border-radius: 50%; /* rounded-full */
+    width: 3rem; /* w-12 (48px) */
+    height: 3rem; /* h-12 (48px) */
+    animation: spin 0.8s linear infinite; /* animate-spin */
+    margin: 15px auto 10px;
 }
 
 @keyframes spin {
@@ -176,100 +517,364 @@ button:hover {
     100% { transform: rotate(360deg); }
 }
 
-/* زر الحفظ */
-.save-btn {
-    background-color: #28a745; /* لون أخضر */
-    margin-top: 15px;
+/* ====== قسم نتائج الوصف ====== */
+.description-results-section {
+    text-align: right;
+    margin-top: 2rem; /* mt-8 */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+    padding-top: 0.75rem; /* py-3 */
+    padding-bottom: 0.75rem; /* py-3 */
+}
+.description-results-section h2 {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 700; /* font-bold */
+    line-height: 1.25; /* leading-tight */
+    letter-spacing: -0.015em; /* tracking-[-0.015em] */
+    padding-bottom: 0.5rem; /* pb-2 */
+    padding-top: 1rem; /* pt-4 */
+    border-bottom: none; /* No border for this H2 */
+    text-align: right; /* text-align right */
 }
 
-.save-btn:hover {
-    background-color: #218838;
-}
-
-/* قسم تاريخ الأوصاف */
-.history-container {
-    margin-top: 40px;
-    background: #eef7ff; /* خلفية زرقاء فاتحة */
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    border: 1px solid #cce5ff;
-}
-
-.history-container h2 {
-    color: #0056b3; /* لون أزرق داكن */
-    text-align: center;
+.generated-description-box {
+    background-color: transparent; /* No background in Tailwind example box */
+    border: 1px dashed #dbdbdb; /* border border-[#dbdbdb] */
+    padding: 1rem; /* p-4 */
+    border-radius: 0.5rem; /* rounded-lg */
+    margin-top: 20px;
     margin-bottom: 25px;
+    font-size: 17px;
+    color: var(--text-color);
+}
+
+#descriptionText {
+    width: 100%;
+    min-height: 9rem; /* min-h-36 */
+    padding: 0.9375rem; /* p-[15px] */
+    border: none; /* border-none */
+    background-color: transparent;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    resize: vertical; /* Keep vertical resize */
+    margin: 0;
+    box-sizing: border-box;
+    white-space: pre-wrap;
+    font-family: 'Inter', 'Noto Sans', 'Cairo', sans-serif;
+    outline: 0; /* focus:outline-0 */
+    box-shadow: none; /* focus:ring-0 */
+    overflow-y: auto; /* **هذا هو الحل لمشكلة التمرير** */
+}
+
+
+.actions {
+    display: flex;
+    justify-content: center; /* justify-center */
+    gap: 1rem; /* gap-4 */
+    flex-wrap: wrap;
+    margin-top: 1rem; /* mt-4 */
+}
+
+/* ====== قسم تاريخ الأوصاف المحفوظة ====== */
+.history-section {
+    text-align: right;
+    margin-top: 2rem; /* mt-8 */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+    padding-top: 0.75rem; /* py-3 */
+    padding-bottom: 0.75rem; /* py-3 */
+}
+.history-section h2 {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 700; /* font-bold */
+    line-height: 1.25; /* leading-tight */
+    letter-spacing: -0.015em; /* tracking-[-0.015em] */
+    padding-bottom: 0.5rem; /* pb-2 */
+    padding-top: 1rem; /* pt-4 */
+    border-bottom: none; /* No border for this H2 */
+    text-align: right; /* text-align right */
 }
 
 #descriptionsHistory {
-    list-style: none; /* إزالة النقاط الافتراضية */
+    list-style-type: none;
     padding: 0;
-    max-height: 400px; /* تحديد أقصى ارتفاع */
-    overflow-y: auto; /* إضافة شريط تمرير إذا زاد المحتوى */
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 10px;
-    background-color: #ffffff;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px dashed #dbdbdb; /* border-2 border-dashed border-[#dbdbdb] - simplifying to solid */
+    border-radius: 0.5rem; /* rounded-lg */
+    padding: 1.5rem; /* px-6 py-14, averaged to p-6 for list wrapper */
+    background-color: transparent; /* No specific background for the ul in original */
+    display: flex; /* flex flex-col items-center gap-6 */
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* gap-6 */
+    min-height: 15rem; /* A reasonable height for the dashed box */
+    justify-content: center; /* Center content if empty */
 }
 
 #descriptionsHistory li {
-    background-color: #f0f7ff; /* خلفية فاتحة للعناصر */
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #d9edf7;
-    font-size: 0.95em;
-    line-height: 1.5;
-    position: relative; /* للسماح بوضع زر الحذف */
+    background-color: transparent; /* No specific background in Tailwind example */
+    border: none; /* No border for list items in Tailwind example */
+    border-radius: 0;
+    padding: 0; /* No padding for individual li in original */
+    margin-bottom: 0; /* No margin-bottom for individual li in original */
+    line-height: 1.6;
+    color: #141414; /* text-[#141414] */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 700; /* font-bold */
+    line-height: 1.25; /* leading-tight */
+    letter-spacing: -0.015em; /* tracking-[-0.015em] */
+    max-width: 480px; /* max-w-[480px] */
+    text-align: center; /* text-center */
 }
 
 #descriptionsHistory li:last-child {
     margin-bottom: 0;
 }
 
-/* زر مسح التاريخ */
-.clear-history-btn {
-    background-color: #dc3545; /* لون أحمر */
-    margin-top: 20px;
+#descriptionsHistory strong {
+    color: var(--heading-color);
+    display: block;
+    margin-bottom: 5px;
 }
 
-.clear-history-btn:hover {
-    background-color: #c82333;
+#descriptionsHistory small {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 5px;
 }
 
-/* تحسينات للشاشات الصغيرة */
+#clearHistoryBtn {
+    margin-top: 1rem; /* mt-4 */
+    width: auto;
+    margin-left: auto; /* Align to left in RTL for buttons */
+    margin-right: 0;
+    font-size: 0.875rem; /* text-sm */
+    height: 2.5rem; /* h-10 */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+}
+
+/* زر الحذف لكل عنصر في التاريخ (سيتم إضافته لاحقًا بـ JS) */
+.delete-history-item-btn {
+    background-color: var(--button-danger-bg);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+    white-space: nowrap;
+    order: -1;
+    align-self: center;
+}
+
+.delete-history-item-btn:hover {
+    background-color: var(--button-danger-hover-bg);
+}
+
+
+/* ====== استجابة التصميم (Media Queries) ====== */
 @media (max-width: 768px) {
     .container {
-        margin: 20px;
-        padding: 25px;
+        padding: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
-    h1 {
-        font-size: 2em;
+
+    .site-header {
+        padding: 0.8rem; /* Reduced padding for smaller screens */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
-    button {
-        font-size: 1.1em;
-        padding: 12px 20px;
+
+    .site-header .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px; /* Reduce gap */
+    }
+
+    #siteTitle {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .header-controls {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .theme-toggle-btn,
+    .language-select {
+        width: 100%;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .form-group label {
+        font-size: 16px;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+
+    .options-group {
+        flex-direction: column;
+        gap: 15px;
+        max-width: 100%; /* Full width */
+        padding-left: 0; /* Remove horizontal padding */
+        padding-right: 0; /* Remove horizontal padding */
+    }
+
+    .options-group .form-group {
+        min-width: unset;
+        width: 100%;
+    }
+
+    #productForm > .form-group { /* For productTitle, keyFeatures, seoKeywords wrappers */
+        max-width: 100%; /* Full width */
+        padding-left: 0; /* Remove horizontal padding */
+        padding-right: 0; /* Remove horizontal padding */
+    }
+    .form-submit-btn-wrapper { /* Adjust wrapper for submit button */
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    #clearHistoryBtn {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #descriptionsHistory li {
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 100%; /* Full width */
+    }
+
+    .delete-history-item-btn {
+        width: 100%;
+        margin-top: 10px;
+        margin-right: 0;
+        order: unset;
+    }
+    .main-content {
+        padding-left: 15px; /* Adjust padding for smaller screens */
+        padding-right: 15px; /* Adjust padding for smaller screens */
+    }
+    .site-footer .container {
+        align-items: center; /* Center items in mobile footer */
+        text-align: center; /* Center text in mobile footer */
     }
 }
-/* ... (بقية ملف CSS الخاص بك) ... */
 
-/* نمط لحقول الإدخال والنص (تأكد من تطبيق هذا على input[type="text"] و textarea) */
-.input-group input[type="text"],
-.input-group textarea,
-.input-group select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box; /* لضمان أن العرض يشمل padding والحدود */
-    font-size: 1em;
+
+/* ====== الفوتر (site-footer) ====== */
+.site-footer {
+    background-color: var(--header-bg-color);
+    padding: 2.5rem 1.25rem; /* py-10 px-5 */
+    text-align: center;
+    border-top: 1px solid #ededed; /* border-[#ededed] */
+    font-size: 0.9rem;
+    color: #737373; /* text-neutral-500 */
+    margin-top: auto;
+    box-shadow: 0 -2px 4px var(--box-shadow-light);
+    display: flex; /* flex */
+    justify-content: center; /* justify-center */
 }
 
-/* نمط لحقل الكلمات المفتاحية تحديدًا إذا أردت تمييزه */
-#seoKeywords {
-    border-color: #007bff; /* لون مميز مثلاً */
+.site-footer .container {
+    display: flex;
+    flex-direction: column; /* flex-col */
+    gap: 1.5rem; /* gap-6 */
+    padding: 0; /* Override default container padding for footer */
+    max-width: 960px; /* max-w-[960px] */
+    flex: 1; /* flex-1 */
+    align-items: center; /* Adjust for centering */
+}
+.site-footer .container > div { /* For links and social icons groups */
+    display: flex;
+    flex-wrap: wrap; /* flex-wrap */
+    align-items: center; /* items-center */
+    justify-content: center; /* justify-center */
+    gap: 1.5rem; /* gap-6 */
+}
+.site-footer .social-links { /* Specific for social links group */
+    display: flex;
+    gap: 1rem; /* gap-4 */
+    justify-content: center;
+    align-items: center;
 }
 
-/* ... (بقية الأنماط) ... */
+
+.site-footer p {
+    margin-bottom: 0;
+    font-size: 1rem; /* text-base */
+    font-weight: 400; /* font-normal */
+    line-height: 1.5; /* leading-normal */
+}
+
+.site-footer a {
+    color: #737373; /* text-neutral-500 */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1rem; /* text-base */
+    font-weight: 400; /* font-normal */
+    line-height: 1.5; /* leading-normal */
+    /* min-width: 10rem; Removed, causes issues with short links */
+}
+.site-footer .author-link { /* Specific style for the author link */
+    color: #141414; /* text-[#141414] */
+    font-weight: 700; /* font-bold */
+}
+.site-footer .author-link:hover {
+    color: #333333; /* Darker on hover */
+}
+
+
+.site-footer a:hover {
+    color: #555555; /* A slightly darker shade for hover */
+    text-decoration: underline;
+}
+.site-footer svg {
+    width: 1.5rem; /* data-size="24px" */
+    height: 1.5rem; /* data-size="24px" */
+    fill: currentColor; /* fill="currentColor" */
+    color: #737373; /* text-neutral-500 */
+}
