@@ -66,6 +66,8 @@ def generate_description():
     tone = data.get('tone', 'marketing')
     length = data.get('length', 'medium')
     language = data.get('language', 'arabic')
+    target_audience = data.get('target_audience', '') # جلب الجمهور المستهدف
+    target_audience = data.get('target_audience')
 
     if not product_title or not key_features or not seo_keywords:
         return jsonify({"error": "الرجاء توفير عنوان المنتج، الميزات الرئيسية، والكلمات المفتاحية المستهدفة."}), 400
@@ -126,6 +128,8 @@ def generate_description():
             الميزات الرئيسية (نقطية):
             {chr(10).join([f"- {feat}" for feat in key_features])}
             الكلمات المفتاحية المستهدفة: {', '.join(seo_keywords)}
+            الكلمات المفتاحية المستهدفة: {', '.join(seo_keywords)}
+            الجمهور المستهدف للمنتج: {target_audience if target_audience else 'لم يتم تحديد جمهور مستهدف. يرجى التركيز على وصف عام مقنع.'}
 
             **السمات المطلوبة للوصف:**
             - **اللغة:** {language_instruction}
@@ -195,6 +199,7 @@ def save_description():
     tone = data.get('tone')
     length = data.get('length')
     language = data.get('language')
+    target_audience = data.get('target_audience')
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     descriptions = load_descriptions()
@@ -205,6 +210,7 @@ def save_description():
         "tone": tone,
         "length": length,
         "language": language,
+        "target_audience": target_audience,
         "description": description_text,
         "timestamp": timestamp
     })

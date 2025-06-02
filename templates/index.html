@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مولد وصف المنتج بالذكاء الاصطناعي</title>
@@ -9,120 +10,349 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد وصف المنتجات بالذكاء الاصطناعي</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9O8q+3MpyiAR6csYl1zZ+HjS1K4fXJqFv70Nn/gM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            direction: rtl; /* لضمان الاتجاه من اليمين لليسار للعربية */
+            text-align: right; /* لمحاذاة النص لليمين */
+        }
+        .container {
+            max-width: 900px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #218838;
+        }
+        .btn-info {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+        }
+        .btn-info:hover {
+            background-color: #138496;
+            border-color: #138496;
+        }
+        .description-box {
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            padding: 15px;
+            border-radius: 5px;
+            min-height: 150px;
+            white-space: pre-wrap; /* للحفاظ على التنسيق والمسافات */
+            word-wrap: break-word; /* لكسر الكلمات الطويلة */
+        }
+        .history-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .history-item:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
-    <header class="site-header">
-        <div class="container">
-            <div class="header-logo-container">
-                <svg width="24px" height="24px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M228,88H204V64a20.022,20.022,0,0,0-20-20H152a20.022,20.022,0,0,0-20,20V88H104V64a20.022,20.022,0,0,0-20-20H52A20.022,20.022,0,0,0,32,64V88H28a12,12,0,0,0-12,12V208a12,12,0,0,0,12,12H228a12,12,0,0,0,12-12V100A12,12,0,0,0,228,88ZM48,64a4,4,0,0,1,4-4H84a4,4,0,0,1,4,4V88H48Zm88,0a4,4,0,0,1,4-4h28a4,4,0,0,1,4,4V88H136ZM224,208a4,4,0,0,1-4,4H32a4,4,0,0,1-4-4V100a4,4,0,0,1,4-4H224a4,4,0,0,1,4,4Z"></path></g></svg>
-                <h1 id="siteTitle">وصف منتج احترافي</h1>
+    <body class="bg-light">
+    <div class="container">
+        <h1 class="mb-4 text-center text-primary">مولد وصف المنتجات بالذكاء الاصطناعي 🌟</h1>
+        <p class="lead text-center mb-5">قم بتوليد أوصاف منتجات جذابة ومُحسنة لمحركات البحث في لحظات!</p>
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-magic"></i> توليد وصف جديد</h5>
             </div>
-            <div class="header-controls">
-                <select id="uiLanguage" class="language-select">
-                    <option value="ar" data-i18n="lang_arabic">العربية</option>
-                    <option value="en" data-i18n="lang_english">English</option>
-                    <option value="es" data-i18n="lang_spanish">Español</option>
-                </select>
-                <button id="themeToggleBtn" class="theme-toggle-btn">الوضع الداكن</button>
-            </div>
-        </div>
-    </header>
-    <main class="main-content">
-        <div class="container">
-            <section class="description-form-section">
-                <h2>أنشئ وصف منتجك في ثوانٍ!</h2>
-                <p>أدخل تفاصيل منتجك وسنقوم بتوليد وصف احترافي وجذاب.</p>
-
-                <form id="productForm">
-                    <div class="form-group">
-                        <label for="productTitle" data-i18n="product_title_label">عنوان المنتج:</label>
-                        <input type="text" id="productTitle" placeholder="مثال: ساعة ذكية رياضية" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="keyFeatures" data-i18n="key_features_label">الميزات الرئيسية (لكل ميزة سطر جديد):</label>
-                        <textarea id="keyFeatures" rows="5" placeholder="مثال:
-- مقاومة للماء
-- تتبع معدل ضربات القلب
-- بطارية تدوم 7 أيام" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="seoKeywords" data-i18n="seo_keywords_label">الكلمات المفتاحية المستهدفة (افصل بفاصلة):</label>
-                        <input type="text" id="seoKeywords" placeholder="مثال: ساعة ذكية، لياقة بدنية، تتبع صحي" required>
-                    </div>
-                    <h3>خيارات الوصف:</h3>
-                    <div class="options-group">
-                        <div class="form-group"> <label for="tone" data-i18n="tone_label">النبرة:</label>
-                            <select id="tone">
-                                <option value="marketing" data-i18n="tone_marketing">تسويقية</option>
-                                <option value="friendly" data-i18n="tone_friendly">ودودة</option>
-                                <option value="formal" data-i18n="tone_formal">رسمية</option>
-                                <option value="humorous" data-i18n="tone_humorous">فكاهية</option>
-                                <option value="informative" data-i18n="tone_informative">معلوماتية</option>
-                            </select>
-                        </div>
-                        <div class="form-group"> <label for="length" data-i18n="length_label">الطول:</label>
-                            <select id="length">
-                                <option value="short" data-i18n="length_short">قصير</option>
-                                <option value="medium" data-i18n="length_medium">متوسط</option>
-                                <option value="long" data-i18n="length_long">طويل</option>
-                            </select>
-                        </div>
-                        <div class="form-group"> <label for="language" data-i18n="description_language_label">لغة الوصف (للنموذج):</label>
-                            <select id="language" name="language">
-                                <option value="arabic" data-i18n="lang_arabic">العربية</option>
-                                <option value="english" data-i18n="lang_english">English</option>
-                                <option value="spanish" data-i18n="lang_spanish">Español</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-submit-btn-wrapper"> <button type="submit" class="btn btn-primary" data-i18n="generate_button"><span>توليد الوصف</span></button>
-                    </div>
-                </form>
-
-                <div id="loading" class="loading-section hidden">
-                    <div class="spinner"></div>
-                    <p data-i18n="loading_message">جاري توليد الوصف...</p>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="product_title" class="form-label">عنوان المنتج:</label>
+                    <input type="text" class="form-control" id="product_title" placeholder="مثال: هاتف ذكي فائق، حقيبة سفر ذكية" required>
                 </div>
-
-                <div id="error" class="error-section hidden">
-                    <p id="errorMessage" class="error-message"></p>
+                <div class="mb-3">
+                    <label for="key_features" class="form-label">الميزات الرئيسية (افصل بينها بفاصلة):</label>
+                    <textarea class="form-control" id="key_features" rows="3" placeholder="مثال: شاشة OLED، بطارية تدوم 24 ساعة، كاميرا 108 ميجابكسل" required></textarea>
                 </div>
-            </section>
-
-            <section id="response" class="description-results-section hidden">
-                <h2>الوصف المقترح:</h2>
-                <div class="generated-description-box">
-                    <textarea id="descriptionText" readonly></textarea>
+                <div class="mb-3">
+                    <label for="seo_keywords" class="form-label">الكلمات المفتاحية المستهدفة (افصل بينها بفاصلة):</label>
+                    <input type="text" class="form-control" id="seo_keywords" placeholder="مثال: أفضل هاتف 2025، شنطة سفر متينة، وصف منتجات" required>
                 </div>
-                <div class="actions">
-                    <button id="copyDescriptionBtn" class="btn btn-secondary" data-i18n="copy_button">نسخ الوصف</button>
-                    <button id="saveDescriptionBtn" class="btn btn-secondary" data-i18n="save_button">حفظ الوصف</button>
-                    <button id="generateNewBtn" class="btn btn-primary" data-i18n="generate_new_button">توليد وصف جديد</button>
+                <div class="mb-3">
+                    <label for="target_audience" class="form-label">الجمهور المستهدف:</label>
+                    <input type="text" class="form-control" id="target_audience" placeholder="مثال: الشباب محبي التكنولوجيا، المسافرون الدائمون، الأمهات الجدد">
+                    <small class="form-text text-muted">لمن هذا المنتج؟ هذا يساعد الذكاء الاصطناعي على تخصيص الوصف.</small>
                 </div>
-            </section>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="tone" class="form-label">النبرة:</label>
+                        <select class="form-select" id="tone">
+                            <option value="marketing" selected>تسويقية مقنعة</option>
+                            <option value="friendly">ودودة وغير رسمية</option>
+                            <option value="formal">رسمية ومهنية</option>
+                            <option value="luxury">فاخرة وحصرية</option>
+                            <option value="humorous">فكاهية ومرحة</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="length" class="form-label">الطول:</label>
+                        <select class="form-select" id="length">
+                            <option value="short">قصير جدًا (حتى 40 كلمة)</option>
+                            <option value="medium" selected>متوسط (100-200 كلمة)</option>
+                            <option value="long">طويل ومفصل (250-400 كلمة)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="language" class="form-label">اللغة:</label>
+                        <select class="form-select" id="language">
+                            <option value="arabic" selected>العربية</option>
+                            <option value="english">English</option>
+                            <option value="spanish">Español</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary w-100 mb-3" onclick="generateDescription()"><i class="fas fa-cogs"></i> توليد الوصف</button>
 
-            <section class="history-section">
-                <h2 data-i18n="history_title">تاريخ الأوصاف المحفوظة:</h2>
-                <ul id="descriptionsHistory">
-                    <li><span data-i18n="no_history_message">لا توجد أوصاف محفوظة بعد.</span></li>
-                </ul>
-                <button id="clearHistoryBtn" class="btn btn-secondary hidden" data-i18n="clear_history_button">مسح التاريخ</button>
-            </section>
-        </div>
-    </main>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2025 وصف منتج احترافي | تم الإنشاء بواسطة <a href="#" class="author-link">أحمد</a> 🤖</p>
-            <div class="social-links">
-                <a href="https://github.com/yourusername/yourrepo" target="_blank" aria-label="GitHub">
-                    <svg fill="#737373" width="24px" height="24px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="icon"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M512 0C229.25 0 0 229.25 0 512c0 226.25 146.625 418.125 350.25 485.875 25.625 4.75 34.875-11.125 34.875-24.625 0-12.25-0.5-45 0-88.75C216.375 929 197 819.25 197 819.25c-29-73.75-70.625-93.5-70.625-93.5-57.25-39.25 4.25-38.5 4.25-38.5 63.625 4.5 97.375 65.625 97.375 65.625 56.875 97.375 149 69.125 185.375 52.875 5.75-41.25 22-69.125 39.75-84.875C271.125 718 167.5 679.25 167.5 500.25c0-41.5 14.875-75.5 39.75-102.25-4-10.25-17.375-48.5 4-101 0 0 32.5-10.5 106.375 39C425 352.625 456.5 347.5 488 347.5c31.5 0 63 5.125 92.625 13.5 73.875-49.5 106.375-39 106.375-39 21.375 52.5 8 90.75 4 101 24.875 26.75 39.75 60.75 39.75 102.25 0 179.25-103.75 218-202.875 229.25 17.75 15.25 34.75 44.375 34.75 89.5 0 64.75-0.5 116.625 0 132.875 0 13.5 9.25 29.375 35.25 24.625C877.375 929.125 1024 737.25 1024 512 1024 229.25 794.75 0 512 0z"></path></g></svg>
-                </a>
-                <a href="mailto:you@example.com" aria-label="Email">
-                    <svg fill="#737373" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#737373"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12 12.713L18.423 7H5.577L12 12.713zM20 9.07v7.93h-16V9.07L12 14.53l8-5.46zM22 7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7z"></path></g></svg>
-                </a>
+                <div id="loading" class="text-center text-info mb-3" style="display:none;">
+                    <div class="spinner-border text-info" role="status">
+                        <span class="visually-hidden">جاري التوليد...</span>
+                    </div>
+                    <p>جاري توليد الوصف، قد يستغرق الأمر بضع ثوانٍ...</p>
+                </div>
+                
+                <div id="error_message" class="alert alert-danger" style="display:none;"></div>
+
+                <div class="mb-3">
+                    <label for="description_output" class="form-label">الوصف المُولد:</label>
+                    <div id="description_output" class="description-box"></div>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-success me-md-2" onclick="saveDescription()" id="save_btn" disabled><i class="fas fa-save"></i> حفظ الوصف</button>
+                    <button type="button" class="btn btn-info" onclick="copyDescription()" id="copy_btn" disabled><i class="fas fa-copy"></i> نسخ الوصف</button>
+                </div>
             </div>
         </div>
-    </footer>
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-secondary text-white">
+                <h5 class="mb-0"><i class="fas fa-history"></i> سجل الأوصاف المحفوظة</h5>
+            </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-danger mb-3" onclick="clearHistory()"><i class="fas fa-trash-alt"></i> مسح السجل</button>
+                <div id="history_list">
+                    <p class="text-muted text-center" id="no_history_message">لا توجد أوصاف محفوظة بعد.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIh7prXmC3lHTB8tQ" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHistory();
+        });
+
+        async function generateDescription() {
+            const product_title = document.getElementById('product_title').value;
+            const key_features = document.getElementById('key_features').value;
+            const seo_keywords = document.getElementById('seo_keywords').value;
+            const tone = document.getElementById('tone').value;
+            const length = document.getElementById('length').value;
+            const language = document.getElementById('language').value;
+            const target_audience = document.getElementById('target_audience').value; // جلب الجمهور المستهدف
+
+            const loadingDiv = document.getElementById('loading');
+            const errorMessageDiv = document.getElementById('error_message');
+            const descriptionOutput = document.getElementById('description_output');
+            const saveBtn = document.getElementById('save_btn');
+            const copyBtn = document.getElementById('copy_btn');
+
+            errorMessageDiv.style.display = 'none';
+            loadingDiv.style.display = 'block';
+            descriptionOutput.textContent = ''; // مسح الوصف السابق
+            saveBtn.disabled = true;
+            copyBtn.disabled = true;
+
+            try {
+                const response = await fetch('/generate-description', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        product_title,
+                        key_features,
+                        seo_keywords,
+                        tone,
+                        length,
+                        language,
+                        target_audience // إرسال الجمهور المستهدف إلى الخادم
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    descriptionOutput.textContent = data.description;
+                    saveBtn.disabled = false;
+                    copyBtn.disabled = false;
+                } else {
+                    errorMessageDiv.textContent = data.error;
+                    errorMessageDiv.style.display = 'block';
+                }
+            } catch (error) {
+                errorMessageDiv.textContent = 'حدث خطأ غير متوقع: ' + error.message;
+                errorMessageDiv.style.display = 'block';
+            } finally {
+                loadingDiv.style.display = 'none';
+            }
+        }
+
+        async function saveDescription() {
+            const descriptionText = document.getElementById('description_output').textContent;
+            if (!descriptionText) {
+                alert('لا يوجد وصف لحفظه!');
+                return;
+            }
+
+            const product_title = document.getElementById('product_title').value;
+            const key_features = document.getElementById('key_features').value;
+            const seo_keywords = document.getElementById('seo_keywords').value;
+            const tone = document.getElementById('tone').value;
+            const length = document.getElementById('length').value;
+            const language = document.getElementById('language').value;
+            const target_audience = document.getElementById('target_audience').value; // جلب الجمهور المستهدف للحفظ
+
+            try {
+                const response = await fetch('/save-description', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        description: descriptionText,
+                        product_title,
+                        key_features,
+                        seo_keywords,
+                        tone,
+                        length,
+                        language,
+                        target_audience // حفظ الجمهور المستهدف
+                    })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    alert(data.message);
+                    loadHistory(); // تحديث السجل بعد الحفظ
+                } else {
+                    alert('خطأ في حفظ الوصف: ' + data.error);
+                }
+            } catch (error) {
+                alert('حدث خطأ غير متوقع أثناء الحفظ: ' + error.message);
+            }
+        }
+
+        function copyDescription() {
+            const descriptionText = document.getElementById('description_output').textContent;
+            if (descriptionText) {
+                navigator.clipboard.writeText(descriptionText).then(() => {
+                    alert('تم نسخ الوصف بنجاح!');
+                }).catch(err => {
+                    alert('فشل نسخ الوصف: ' + err);
+                });
+            } else {
+                alert('لا يوجد وصف لنسخه!');
+            }
+        }
+
+        async function loadHistory() {
+            const historyList = document.getElementById('history_list');
+            const noHistoryMessage = document.getElementById('no_history_message');
+            historyList.innerHTML = ''; // مسح السجل الحالي
+
+            try {
+                const response = await fetch('/get-history');
+                const data = await response.json();
+
+                if (response.ok && data.history.length > 0) {
+                    noHistoryMessage.style.display = 'none';
+                    data.history.reverse().forEach(item => { // عرض الأحدث أولاً
+                        const historyItemDiv = document.createElement('div');
+                        historyItemDiv.className = 'history-item';
+                        historyItemDiv.innerHTML = `
+                            <h6>${item.product_title} <span class="badge bg-secondary">${item.timestamp}</span></h6>
+                            <p><strong>الميزات:</strong> ${item.key_features}</p>
+                            <p><strong>الكلمات المفتاحية:</strong> ${item.seo_keywords}</p>
+                            <p><strong>النبرة:</strong> ${item.tone} | <strong>الطول:</strong> ${item.length} | <strong>اللغة:</strong> ${item.language}</p>
+                            ${item.target_audience ? `<p><strong>الجمهور المستهدف:</strong> ${item.target_audience}</p>` : ''}
+                            <p><strong>الوصف:</strong></p>
+                            <div class="description-box">${item.description}</div>
+                            <button type="button" class="btn btn-sm btn-outline-info mt-2" onclick="copyTextToClipboard('${item.description.replace(/'/g, "\\'")}')"><i class="fas fa-copy"></i> نسخ</button>
+                        `;
+                        historyList.appendChild(historyItemDiv);
+                    });
+                } else {
+                    noHistoryMessage.style.display = 'block';
+                }
+            } catch (error) {
+                historyList.innerHTML = `<p class="text-danger">حدث خطأ في تحميل السجل: ${error.message}</p>`;
+                noHistoryMessage.style.display = 'none';
+            }
+        }
+
+        async function clearHistory() {
+            if (confirm('هل أنت متأكد أنك تريد مسح كل الأوصاف المحفوظة؟')) {
+                try {
+                    const response = await fetch('/clear-history', {
+                        method: 'POST'
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        alert(data.message);
+                        loadHistory(); // تحديث السجل
+                    } else {
+                        alert('خطأ في مسح السجل: ' + data.error);
+                    }
+                } catch (error) {
+                    alert('حدث خطأ غير متوقع أثناء مسح السجل: ' + error.message);
+                }
+            }
+        }
+        // دالة مساعدة لنسخ النص من سجل الأوصاف
+        function copyTextToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('تم نسخ النص بنجاح!');
+            }).catch(err => {
+                alert('فشل نسخ النص: ' + err);
+            });
+        }
+    </script>
+</body>
     </body>
 </html>
